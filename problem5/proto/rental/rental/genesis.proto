@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package rental.rental;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "rental/rental/params.proto";
+import "rental/rental/rental.proto";
+
+option go_package = "rental/x/rental/types";
+
+// GenesisState defines the rental module's genesis state.
+message GenesisState {
+  
+  // params defines all the parameters of the module.
+           Params params      = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+  repeated Rental rentalList  = 2 [(gogoproto.nullable) = false] ;
+           uint64 rentalCount = 3;
+}
+
